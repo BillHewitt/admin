@@ -77,4 +77,7 @@ class PagesController < ApplicationController
 
   def compare
   end 
+
+  def actionpreview
+  end 
 end
