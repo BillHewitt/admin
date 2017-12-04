@@ -15,9 +15,6 @@
 					<%= link_to "Insights", pages_engagement_path, :class => "nav-link active" %>
 				</li>
 				<li class="nav-item">
-		          <%= link_to "Compare", pages_compare_path, :class => "nav-link" %>
-		        </li>
-				<li class="nav-item">
 					<%= link_to "Survey Questions", pages_survey_path, :class => "nav-link" %>
 				</li>
 				<li class="nav-item">
@@ -76,6 +73,9 @@
 			</div>
 			<div class="col-md-6">
 				<div class="float-right">
+					<%= link_to pages_compare_path do %>
+						<button type="button" class="btn btn-md btn-tertiary">Compare all teams</button>
+					<% end %>
 					<button type="button" class="btn btn-md btn-secondary">Download report</button>
 				</div>
 			</div>

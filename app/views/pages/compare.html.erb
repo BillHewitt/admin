@@ -12,9 +12,6 @@
           <%= link_to "Insights", pages_engagement_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Compare", pages_compare_path, :class => "nav-link active" %>
-        </li>
-        <li class="nav-item">
           <%= link_to "Survey Questions", pages_survey_path, :class => "nav-link" %>
         </li>
         <li class="nav-item">
@@ -54,7 +51,9 @@
 
     <section class="row space">
       <div class="col-md-6">
-        <nav class="breadcrumb">
+          <nav class="breadcrumb">
+          <%= link_to 'Insights', pages_engagement_path, class: 'breadcrumb-item' %>
+          <span class="breadcrumb-item active">Compare</span>
         </nav>
       </div>
       <div class="col-md-6">
