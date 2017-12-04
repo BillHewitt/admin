@@ -1,0 +1,308 @@
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
+
+<div class="container-fluid" id="wrapper">
+		<div class="row">
+		<nav class="sidebar col-xs-12 col-sm-4 col-lg-3 col-xl-2">
+			<h1 class="site-title">
+				<%= link_to "Perkbox Insights", root_path %>
+			</h1>
+			
+			<ul class="nav nav-pills flex-column sidebar-nav">
+				<li class="nav-item">
+					<%= link_to "Insights", pages_engagement_path, :class => "nav-link active" %>
+				</li>
+				<li class="nav-item">
+		          <%= link_to "Compare", pages_compare_path, :class => "nav-link" %>
+		        </li>
+				<li class="nav-item">
+					<%= link_to "Survey Questions", pages_survey_path, :class => "nav-link" %>
+				</li>
+				<li class="nav-item">
+					<%= link_to "Stats", pages_stats_path, :class => "nav-link" %>
+				</li>
+				<li class="nav-item">
+					<%= link_to "Action Board", pages_action_path, :class => "nav-link" %>
+				</li>
+				<li class="nav-item">
+					<%= link_to "Teams", pages_teams_path, :class => "nav-link" %>
+				</li>
+				<li class="nav-item">
+					<%= link_to "Users", pages_users_path, :class => "nav-link" %>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<main class="col-xs-12 col-sm-8 col-lg-9 col-xl-10 pt-3 pl-4 ml-auto">
+		<header class="page-header row justify-center">
+			<div class="col-md-6 col-lg-8">
+				<h1 class="float-left text-center text-md-left">Insights</h1>
+				<div class="btn-group">
+					<button data-toggle="dropdown" class="btn btn-link btn-lg no-padding dropdown-toggle margin" aria-expanded="false">Entire company <span class="caret"></span></button>
+					<ul class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 36px, 0px); top: 0px; left: 0px; will-change: transform;">
+						<li><a href="#">Account Management</a></li>
+						<li><a href="#" class="font-bold">Product & Engineering</a></li>
+						<li class="divider"></li>
+						<li><a href="#">London</a></li>
+						<li><a href="#">Sheffield</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="dropdown user-dropdown col-md-6 col-lg-4 text-center text-md-right"><a class="btn btn-stripped dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<img src="https://i.imgur.com/sRiXEAA.jpg" alt="profile photo" class="circle float-left profile-photo" width="50" height="auto">
+				<div class="username mt-1">
+					<h4 class="mb-1">Shaun Bradley</h4>
+					<h6 class="text-muted">People Director</h6>
+				</div>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right" style="margin-right: 1.5rem;" aria-labelledby="dropdownMenuLink"><%= link_to "My Profile", pages_profile_path, :class => "dropdown-item" %>
+					<%= link_to "Settings", pages_settings_path, :class => "dropdown-item" %>
+				     <a class="dropdown-item" href="#">Logout</a></div>
+			</div>
+			<div class="clear"></div>
+		</header>
+
+		<section class="row space">
+			<div class="col-md-6">
+				<nav class="breadcrumb">
+				  <nav class="breadcrumb">
+				  <span class="breadcrumb-item active">Insights</span>
+				  <%= link_to 'Engagement', pages_engagement_path, class: 'breadcrumb-item active' %>
+				</nav>
+				</nav>
+			</div>
+			<div class="col-md-6">
+				<div class="float-right">
+					<button type="button" class="btn btn-md btn-secondary">Download report</button>
+				</div>
+			</div>
+		</section>
+
+		
+
+			<section class="row">
+					<div class="col-sm-12">
+						<section class="row">
+							<div class="col-md-12 col-lg-12">
+								<div class="card mb-4">
+									<div class="row">
+									<div class="col-md-4 col-lg-4">
+										<div class="card-block">
+											<h3 class="card-title text-center">Engagement Score <em class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" title="This score represents how emotionally connected your people are to their role at Perkbox. The Perkbox score is calculated as a cumulative moving average across all 10 key drivers of engagement."></em></h3>
+											<div class="canvas-wrapper" data-toggle="tooltip" data-placement="top" title="Great score! You're 0.6 above the Perkbox company average. Keep it up :)">
+												<div class="easypiechart" id="easypiechart-4" data-percent="82"><canvas height="300" width="300" style="height: 110px; width: 110px;"></canvas></div>
+												<h3 class="mt-2 mb-1 text-center">8.2/<span class="text-muted small" >10</span></h3>
+												<p class="mb-1 text-center text-muted small">+0.5 since last week</p>
+											</div>
+										</div>
+									</div>
+						
+							<div class="col-md-8 col-lg-8">
+											<div class="bill">
+											<canvas id="line-chart" height="90"></canvas>
+										</div>
+										</div>
+									</div>
+							</div>
+					</section>
+
+				<section class="row space">
+					<div class="col-sm-12">
+						<section class="row">
+							<div class="col-md-4 col-lg-6">
+								<div class="card mb-6">
+									<div class="card-block">
+										<h3 class="card-title text-center">Strengths <em class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Calculated from 4250 survey responses since Jan 2017"></em></h3>
+										<h6 class="card-subtitle mb-2 text-muted text-center">Top 5 drivers</h6>
+										<div class="canvas-wrapper">
+
+											<%= link_to pages_organisation_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">The organisation, strategy & culture <span class="float-right text-success">9.5 <i class="fa fa-chevron-right"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-text-color" style="width: 95%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+
+											<%= link_to pages_communication_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">Communication <span class="float-right text-success">9.2 <i class="fa fa-chevron-right"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-red" style="width: 92%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+
+											<%= link_to pages_mywork_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">My work <span class="float-right text-success">8.7 <i class="fa fa-chevron-right"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-red" style="width: 87%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+
+											<%= link_to pages_leadership_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">Leadership <span class="float-right text-success">8.1 <i class="fa fa-chevron-right"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-red" style="width: 81%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+
+											<%= link_to pages_management_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">Management <span class="float-right text-success">7.6 <i class="fa fa-chevron-right"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-red" style="width: 76%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<div class="card mb-6">
+									<div class="card-block">
+										<h3 class="card-title text-center">Weaknesses <em class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Calculated from 3590 survey responses since Jan 2017"></em></h3>
+										<h6 class="card-subtitle mb-2 text-muted text-center">Lower 5 drivers</h6>
+										<div class="canvas-wrapper">
+											<%= link_to pages_opportunities_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">Opportunities <span class="float-right text-danger">7.4 <i class="fa fa-chevron-right"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-red" style="width: 74%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+
+											<%= link_to pages_reward_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">Reward & recognition <span class="float-right text-danger">7.1 <i class="fa fa-chevron-right"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-red" style="width: 71%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+
+											<%= link_to pages_training_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">Training & development <span class="float-right text-danger">6.3 <i class="fa fa-chevron-right"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-red" style="width: 63%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+
+											<%= link_to pages_teamwork_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">Teamwork <span class="float-right text-danger">6.1 <i class="fa fa-chevron-right"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-red" style="width: 61%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+
+											<%= link_to pages_quality_path do %>
+											  	<div class="bottomLinks">
+											    	<h6 class="pt-1">Quality of life <span class="float-right text-danger">5.7 <i class="fa fa-chevron-right gray-3"></i></span></h6>
+													<div class="progress progress-custom">
+														<div class="progress-bar bg-red" style="width: 57%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+													</div>
+											  	</div>
+											<% end %>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</section>
+	</main>
+</div>
+
+
+<script type="text/javascript">
+
+$(function() {
+   $('#easypiechart-4').easyPieChart({
+       scaleColor: false,
+       barColor: '#00adee'
+   });
+});
+</script>
+
+<script type="text/javascript">
+	$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+<script type="text/javascript">
+onload=function(){
+var e=document.getElementById("refreshed");
+if(e.value=="no")e.value="yes";
+else{e.value="no";location.reload();}
+}
+</script>
+
+
+
+
+<script>
+new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov"],
+    datasets: [{ 
+        data: [7.2,7.4,7.8,7.4,7.8,8.0,8.2,7.9,8.0,8.1,8.2],
+        label: "Engagement",
+        borderColor: "#00adee",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    legend: {
+    		display: false,
+            position: 'bottom',
+            labels: {
+                fontFamily: 'Lato',
+                fontSize: 14,
+            }
+        },
+    scales : {
+        xAxes : [ {
+            gridLines : {
+                display : false,
+            }
+        } ],
+        yAxes : [ {
+            gridLines : {
+                display : false,
+            }
+        } ]
+    }
+
+  },
+
+
+});
+
+</script>
+
+
+
+
+
+
+
+
+
